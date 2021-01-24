@@ -1,8 +1,7 @@
 <?php
 require_once 'includes/header.php';
 ?>
-<br>
-Built in progress
+<h1>Built in progress</h1>
 <?php
 require_once 'includes/footer.php';
 ?>

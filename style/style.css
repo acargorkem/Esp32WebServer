@@ -10,23 +10,41 @@ body {
     padding: 0;
     margin: 0;
     color: #343536;
-    background-color: #d6d6d6;
-    /* width: 100%; */
+    background-color: #d6d6d6;   
+    position: relative;
+}
+
+ h1{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    text-align: left;
+    margin-left: 0.5%;
 }
 
 header {
-    height: 4%;
+    height: 4%;   
+    min-height: 25px;
     width: 100%;
     background-color: #343536;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 1ch #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;   
+    }
+
+
+.content {
+    padding: 4% 0 4% 0; 
 }
 
 ul {
     float: left;
     position: relative;
     margin: 0.5em;
-    padding-inline-start: 20px;
-    /* left: 2%; */
+    padding-inline-start: 1vw;   
+
 }
 
 ul li {
@@ -47,6 +65,8 @@ footer {
     bottom: 0%;
     width: 100%;
     height: 3%;
+    max-height: 4%;
+    min-height: 25px;
     background-color: #343536;
     box-shadow: 0 0 10px #000;
     text-align: left;
@@ -54,15 +74,16 @@ footer {
     margin-top: 2%;
     padding-inline-end: 0;
     color: #d6d6d6;
+    
 }
 
 table {
     border-collapse: collapse;
     width: auto;
     margin: 0.5%;
-    table-layout: fixed;
+    table-layout: auto;
+    position: relative;
 }
-
 td,
 th {
     border: 2px solid #343536;
@@ -72,12 +93,17 @@ th {
     white-space: nowrap;
 }
 
-h1 {
-    text-align: left;
-    margin-left: 0.5%;
-}
-
 tbody {
     margin: 5%;
-    padding-bottom: 20px;
+    padding-bottom: 1%;
+}
+
+strong{
+    display: block;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+    right: 0;
+    margin-left: 0.5%;
+    margin-right: auto;
+    text-align: left;
 }

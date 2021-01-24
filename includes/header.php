@@ -12,7 +12,19 @@ require_once 'includes/database.php';
 </head>
 
 <body>
-    <header>
+<!-- <script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("header").style.display = "block";
+  } else {
+    document.getElementById("header").style.display = "none";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script> -->
+    <header id="header">
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -20,5 +32,7 @@ require_once 'includes/database.php';
                 <li><a href="camera.php">Camera</a></li>
                 <li><a href="ota.php">OTA Programming</a></li>
             </ul>
-        </nav>
+        </nav>        
     </header>
+    <div class="content">
+        

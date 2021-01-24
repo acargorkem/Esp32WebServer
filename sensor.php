@@ -24,7 +24,7 @@ if ($rowCount > 0) {
         // echo $row['temperature'];
     }
     echo "</table>";
-    echo " * Last 20 data are shown.";
+    echo "<strong> * Last 20 data are shown. </strong>";
 } else {
     echo ("No result");
 }

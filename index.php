@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/header.php';
 ?>
-<br>Hello World
+<h1>Hello World</h1>
 
 <?php
 require_once 'includes/footer.php';
