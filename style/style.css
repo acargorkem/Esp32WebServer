@@ -7,14 +7,19 @@ html {
 body {
     height: 100%;
     min-height: 100%;
+    min-width: 400px;  /* can remove this line after the low resolution design with media query   */
     padding: 0;
     margin: 0;
     color: #343536;
-    background-color: #d6d6d6;   
+    background-color: #d6d6d6;
     position: relative;
 }
 
- h1{
+.content {
+    padding: 32px 0 32px 0;
+}
+
+h1 {
     padding: 0;
     margin: 0;
     position: relative;
@@ -23,28 +28,38 @@ body {
 }
 
 header {
-    height: 4%;   
-    min-height: 25px;
+    height: 30px;    
     width: 100%;
     background-color: #343536;
     box-shadow: 0 0 1ch #000;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;   
-    }
+    z-index: 10;
+    overflow: hidden;
+}
 
+footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 25px;
+     background-color: #343536;
+    box-shadow: 0 0 10px #000;
+    text-align: right;
+    color: #d6d6d6;
+}
 
-.content {
-    padding: 4% 0 4% 0; 
+footer p {
+    padding: 6px;
+    margin: 0;
 }
 
 ul {
     float: left;
     position: relative;
     margin: 0.5em;
-    padding-inline-start: 1vw;   
-
+    padding-inline-start: 1vw;
 }
 
 ul li {
@@ -60,23 +75,6 @@ ul li a {
     margin: 0.25em;
 }
 
-footer {
-    position: fixed;
-    bottom: 0%;
-    width: 100%;
-    height: 3%;
-    max-height: 4%;
-    min-height: 25px;
-    background-color: #343536;
-    box-shadow: 0 0 10px #000;
-    text-align: left;
-    margin: 0 auto;
-    margin-top: 2%;
-    padding-inline-end: 0;
-    color: #d6d6d6;
-    
-}
-
 table {
     border-collapse: collapse;
     width: auto;
@@ -84,6 +82,7 @@ table {
     table-layout: auto;
     position: relative;
 }
+
 td,
 th {
     border: 2px solid #343536;
@@ -98,12 +97,18 @@ tbody {
     padding-bottom: 1%;
 }
 
-strong{
+strong {
     display: block;
-    padding-bottom: 5%;
-    margin-bottom: 5%;
-    right: 0;
-    margin-left: 0.5%;
-    margin-right: auto;
+    padding-bottom: 5vh;  
+    margin: 0 auto 2vh 1vh;
     text-align: left;
+}
+
+@media screen and (max-width: 360px) {
+    ul {
+        float: none;
+    }
+    ul li {
+        display: inline-block;
+    }
 }
