@@ -7,19 +7,25 @@ require_once 'includes/database.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESP32 Web Server</title>
-  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <title>ESP32 Web Server</title>  
+  <link rel="stylesheet" type="text/css" href="css/style.css">   
+  <script type="text/javascript" src="src/js/jquery-3.6.0.js"></script>
+  <script src="https://d3js.org/d3.v5.js"></script>
+  <script src="src/js/jquery.table2excel.js"></script>
+ 
+  
 </head>
 
 <body>
-  <header id="header">
-    <nav>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="sensor.php">Sensor</a></li>
-        <li><a href="camera.php">Camera</a></li>
-        <li><a href="ota.php">OTA Programming</a></li>
-      </ul>
-    </nav>
-  </header>
-  <div class="content">
+  <section>
+    <header class="section__header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href=" index.php" class="nav__link">Home</a></li>
+          <li class="nav__item"><a href=" sensor.php" class="nav__link">Sensor</a></li>
+          <li class="nav__item"><a href=" camera.php" class="nav__link">Camera</a></li>
+          <!-- <li class="nav__item"><a href=" ota.php" class="nav__link">OTA Programming</a></li> -->
+        </ul>
+      </nav>
+    </header>
+  </section>

@@ -1,10 +1,12 @@
 </div>
 </body>
-<footer>
-    <?php
-    //TODO: Design footer
-    ?>
-   <p>ESP32 Web Server-Görkem Acar</p>
-</footer>
+<section>
+    <footer>
+        <section class="footer">
+            <p>ESP32 Web Server-Görkem Acar</p>
+        </section>
+
+    </footer>
+</section>
 
 </html>

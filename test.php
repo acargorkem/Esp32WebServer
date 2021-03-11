@@ -1,5 +1,3 @@
-<!-- This page used for test motor speed -->
-
 <?php
 $data = $_REQUEST;
 //echo json_encode($data);
@@ -64,3 +62,9 @@ echo (" Left = $mappedLeft ");
 $mappedRight = map($rightSpeed, 0, 100, 0, 255);
 echo (" Right = $mappedRight ");
 }
+
+
+$data2 = file_get_contents('php://input');
+
+// echo($data2);
+echo json_encode($data2);

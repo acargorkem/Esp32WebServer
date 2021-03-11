@@ -1,0 +1,239 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* custom properties */
+
+:root {
+    --ff-primary: 'Times New Roman', Times, serif;
+    /* --ff-secondary: 'Times New Roman', Times, serif; */
+    --fw-reg: 300;
+    --fw-bold: 900;
+    --clr-light: #d6d6d6;
+    --clr-dark: #343536;
+    --clr-accent: #16e0bd;
+    --clr-colored: rgb(29, 68, 141);
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.65rem;
+    --fs-body: 0.6rem;
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
+}
+
+
+/* General styles */
+
+html {
+    width: 100%;
+    height: 100%;
+    font-family: var(--ff-primary);
+}
+
+body {
+    font-family: var(--ff-primary);
+    padding: 0;
+    margin: 0;
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+    line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    padding: 2em 2em;
+}
+
+
+/* Typograpghy */
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+.section__title,
+.section__subtitle {
+    padding: 0;
+    margin: 0;
+}
+
+.section__title--sensor {
+    text-align: center;
+}
+
+
+/* header */
+
+header {
+    display: flex;
+    height: 3em;
+    width: 100%;
+    background-color: var(--clr-dark);
+    box-shadow: 0 0 1ch var(--clr-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.nav__list {
+    float: left;
+    position: relative;
+    margin: 0.5em;
+    padding-inline-start: 1vw;
+}
+
+.nav__item {
+    display: inline;
+    margin: 0.25em;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #d6d6d6;
+    font-size: 16px;
+    padding: 0;
+    margin: 0.25em;
+}
+
+.nav__link:hover {
+    text-decoration: underline;
+}
+
+
+/* footer */
+
+.footer {
+    position: fixed;
+    height: 3em;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--clr-dark);
+    /* box-shadow: 0 0 1ch var(--clr-light); */
+    text-align: right;
+    color: var(--clr-light);
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+}
+
+.footer p {
+    margin: 0.5em 0.5em;
+    padding: 0 0.25em;
+}
+
+
+/* Data section */
+
+.section__data {
+    display: flex;
+    padding: 0 2em;
+}
+
+
+/* data graphs */
+
+.section__data--graph {
+    margin-left: 2%;
+}
+
+
+/* Data table  */
+
+.section__data--table {
+    border-collapse: collapse;
+    width: auto;
+    margin: 0;
+    table-layout: auto;
+    position: relative;
+}
+
+.section__data--value,
+.section__data--heading--value {
+    border: 2px solid #343536;
+    padding: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.data__table--button {
+    float: right;
+    margin: 0.25em;
+}
+.section__data--heading{
+    background-color: #9c9c9c;
+    font-weight: var(--fw-bold);    
+}
+
+/* .section__data--row:nth-child(odd){
+    background-color: #eff2f3;
+} */
+
+@media screen and (max-width: 360px) {
+    ul {
+        float: none;
+    }
+    ul li {
+        display: inline-block;
+    }
+}
+
+
+/* sensor data filter section */
+
+.section__filter {
+    line-height: 1.8;
+}
+
+.section__fiter--submit {
+    margin: 0 1em;
+}
+
+.section__filter--date {
+    margin-right: 1em;
+}
+
+
+/* d3 styles */
+
+div.tooltip {
+    position: absolute;
+    max-width: 400px;
+    height: auto;
+    margin: 1.2em 0 0 1.2em;
+    padding: 0.6em;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.data--graph__button{
+    display: none;
+}
+
+
+.data--graph__buttons {
+    margin: 0 0 1em 4em;
+}
