@@ -2,8 +2,11 @@
 </body>
 <section>
     <footer>
+        <?php
+        // TODO: Design Footer
+        ?>
         <section class="footer">
-            <p>ESP32 Web Server-Görkem Acar</p>
+            <p>IOT Platform-Görkem Acar</p>
         </section>
 
     </footer>

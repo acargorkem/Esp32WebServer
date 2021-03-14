@@ -2,20 +2,23 @@
 require_once 'includes/database.php';
 
 
-
-
-if (isset($_GET['temperature'], $_GET["humidity"], $_GET["altitude"], $_GET["pressure"], $_GET['apikey'])) {
-        $api_key_value = $_GET['apikey'];
+if (isset($_POST['temperature'], $_POST["humidity"], $_POST["altitude"], $_POST["pressure"], $_POST['api_key'])) {
+    $api_key_value = $_POST['api_key'];
     if ($api_key_value == 'gorkem') {
-        $temperature = $_GET["temperature"];
-        $humidity = $_GET["humidity"];
-        $altitude = $_GET["altitude"];
-        $pressure = $_GET["pressure"];
-        $query = "INSERT INTO bme280_values (temperature, humidity, altitude, pressure) VALUES ('$temperature', '$humidity' ,'$altitude', '$pressure' )";
-        $insertResult = mysqli_query($conn, $query);
+        $temperature = $_POST["temperature"];
+        $humidity = $_POST["humidity"];
+        $altitude = $_POST["altitude"];
+        $pressure = $_POST["pressure"];
+        if (($temperature > -60) && ($temperature < 60)) {
+            $query = "INSERT INTO bme280_values (temperature, humidity, altitude, pressure) VALUES ('$temperature', '$humidity' ,'$altitude', '$pressure' )";
+            $insertResult = mysqli_query($conn, $query);
+            echo ('Insert successful');
+        } else {
+            echo ('Not valid Values');
+        }
     } else {
-        echo ("api key wrong");
+        echo ("Api key wrong");
     }
 } else {
-    echo ("request failed");
+    echo ("Request failed");
 }

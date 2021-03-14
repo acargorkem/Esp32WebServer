@@ -1,10 +1,3 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-
 /* custom properties */
 
 :root {
@@ -12,9 +5,9 @@
     /* --ff-secondary: 'Times New Roman', Times, serif; */
     --fw-reg: 300;
     --fw-bold: 900;
-    --clr-light: #d6d6d6;
-    --clr-dark: #343536;
-    --clr-accent: #16e0bd;
+    --clr-light: #ffffff;
+    --clr-dark: #000000;
+    --clr-accent: #dae0e6;
     --clr-colored: rgb(29, 68, 141);
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -37,7 +30,7 @@ body {
     padding: 0;
     margin: 0;
     color: var(--clr-dark);
-    background-color: var(--clr-light);
+    background-color: var(--clr-accent);
     line-height: 1.4;
 }
 
@@ -88,7 +81,7 @@ header {
     height: 3em;
     width: 100%;
     background-color: var(--clr-dark);
-    box-shadow: 0 0 1ch var(--clr-light);
+    box-shadow: 0 0 1ch var(--clr-accent);
     position: fixed;
     top: 0;
     left: 0;
@@ -97,20 +90,21 @@ header {
 }
 
 .nav__list {
+    margin: 0;
+    padding-top: 0.75em;
     float: left;
-    position: relative;
-    margin: 0.5em;
+    position: relative;  
     padding-inline-start: 1vw;
 }
 
 .nav__item {
     display: inline;
-    margin: 0.25em;
+    margin:  0 0.25em;
 }
 
 .nav__link {
     text-decoration: none;
-    color: #d6d6d6;
+    color: var(--clr-light);
     font-size: 16px;
     padding: 0;
     margin: 0.25em;
@@ -182,13 +176,14 @@ header {
     margin: 0.25em;
 }
 .section__data--heading{
-    background-color: #9c9c9c;
+    background-color: #327da87d;
     font-weight: var(--fw-bold);    
+    text-transform: capitalize;
 }
 
-/* .section__data--row:nth-child(odd){
-    background-color: #eff2f3;
-} */
+.section__data--row:nth-child(odd){
+    background-color: #c0c8d0;}
+
 
 @media screen and (max-width: 360px) {
     ul {
@@ -229,11 +224,14 @@ div.tooltip {
     pointer-events: none;
 }
 
-.data--graph__button{
+.d3--graph{
+    position: relative;
+}
+
+.data--graph__button {
     display: none;
 }
 
-
 .data--graph__buttons {
-    margin: 0 0 1em 4em;
+    margin: 0 0 1em 17%;
 }

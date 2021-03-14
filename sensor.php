@@ -3,27 +3,23 @@ require_once 'includes/header.php';
 ?>
 
 <section class="section__title">
-    <h1 class="section__title--sensor">
-        EPS32 Sensor Values
-    </h1>
+    <h2 class="section__title--sensor">
+        Sensor Values
+    </h2>
 </section>
 <section>
     <div class="section__filter">
 
-        <div class="section__filter section__title section__fiter--title">
-            <h3>Please Select the sensor values you want to see</h3>
-        </div>
-
         <form action="sensor.php" method="GET">
             <div class="section__filter section__filter--field">
                 <label> Fields :</label>
-                <input type="checkbox" id="checkbox_temperature" name="fields[]" value="temperature">
+                <input type="checkbox" id="checkbox_temperature" name="fields[]" value="temperature" checked>
                 <label for="checkbox_temperature"> Temperature</label>
-                <input type="checkbox" id="checkbox_pressure" name="fields[]" value="pressure">
-                <label for="checkbox_pressure"> Pressure</label>
-                <input type="checkbox" id="checkbox_altitude" name="fields[]" value="altitude">
-                <label for="checkbox_altitude"> Altitude</label>
-                <input type="checkbox" id="checkbox_humidity" name="fields[]" value="humidity">
+                <input type="checkbox" id="checkbox_pressure" name="fields[]" value="pressure" checked>
+                <label for="checkbox_pressure"> Pressure</label> 
+                <input type="checkbox" id="checkbox_altitude" name="fields[]" value="altitude" checked>
+                <label for="checkbox_altitude"> Altitude</label> 
+                <input type="checkbox" id="checkbox_humidity" name="fields[]" value="humidity" checked>
                 <label for="checkbox_humidity"> Humidity</label>
             </div>
 
@@ -39,11 +35,14 @@ require_once 'includes/header.php';
                 <label for="row_number">Select maximum number of rows : </label>
                 <select id="row_number" name="row_number">
                     <option value="10">10</option>
-                    <option value="20" selected>20</option>
-                    <option value="50">50</option>
+                    <option value="20">20</option>
+                    <option value="50" selected>50</option>
                     <option value="100">100</option>
                     <option value="250">250</option>
                     <option value="500">500</option>
+                    <option value="1000">500</option>
+                    <option value="2000">500</option>
+                    <option value="5000">500</option>
                 </select>
                 <button class="section__fiter--submit" type="submit" name="submit" id="submit"> Create data table and graph</button>
             </div>
@@ -86,7 +85,7 @@ require_once 'includes/header.php';
                 <tr class = "section__data--heading">');  //initialize table tag
                 while ($column = mysqli_fetch_field($result)) {
                     echo '<th class = "section__data--heading--value">' . $column->name . '</td>';  //get field name for header
-                    array_push($allColumns, $column->name);  //save those to array
+                    array_push($allColumns, $column->name);  //save headers to array
                 }
                 echo '</tr>'; //end tr tag
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -94,9 +93,9 @@ require_once 'includes/header.php';
                     echo '<tr class = "section__data--row">';
                     foreach ($allColumns as $item) {
                         echo '<td class = "section__data--value">' . $row[$item] . '</td>'; //get items using property value        
-                        $json_array[$item] = $row[$item];
+                        $json_array[$item] = $row[$item]; // saving temp array for row iteration
                     }
-                    array_push($json_data, $json_array);
+                    array_push($json_data, $json_array); //save data to array
                     echo '</tr>';
                 }
                 echo "</table>";
@@ -117,7 +116,7 @@ require_once 'includes/header.php';
             <button class="data--graph__button" value="altitude" id="button_altitude">Altitude</button>
             <button class="data--graph__button" value="humidity" id="button_humidity">Humidity</button>
         </div>
-        <svg id="d3-graph" class="chart"></svg>
+        <svg id="d3-graph" class="d3--graph" width="920" height="600"></svg>
     </div>
 </section>
 <script>
@@ -141,7 +140,7 @@ require_once 'includes/header.php';
             echo " data = " . $js_data . ";\n";
         }
         ?>
-        if (data) {           
+        if (data) {
             $("#button_export").click(function() {
                 $("#data-table").table2excel({
                     // exclude CSS class
@@ -158,8 +157,7 @@ require_once 'includes/header.php';
     });
 </script>
 
-<script type="module" src="js/graphs.js"></script>
-
+<script type="module" src="js/scatterPlot.js"></script>
 <?php
 require_once 'includes/footer.php';
 ?>
