@@ -40,9 +40,9 @@ require_once 'includes/header.php';
                     <option value="100">100</option>
                     <option value="250">250</option>
                     <option value="500">500</option>
-                    <option value="1000">500</option>
-                    <option value="2000">500</option>
-                    <option value="5000">500</option>
+                    <option value="1000">1000</option>
+                    <option value="2000">2000</option>
+                    <option value="5000">5000</option>
                 </select>
                 <button class="section__fiter--submit" type="submit" name="submit" id="submit"> Create data table and graph</button>
             </div>

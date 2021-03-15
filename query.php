@@ -14,7 +14,7 @@ if (isset($_POST['temperature'], $_POST["humidity"], $_POST["altitude"], $_POST[
             $insertResult = mysqli_query($conn, $query);
             echo ('Insert successful');
         } else {
-            echo ('Not valid Values');
+            echo ('Invalid Values');
         }
     } else {
         echo ("Api key wrong");
