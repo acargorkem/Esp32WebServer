@@ -23,7 +23,7 @@ require_once 'includes/database.php';
         <ul class="nav__list">
           <li class="nav__item"><a href=" index.php" class="nav__link">Home</a></li>
           <li class="nav__item"><a href=" sensor.php" class="nav__link">Sensor</a></li>
-          <li class="nav__item"><a href=" camera.php" class="nav__link">Camera</a></li>         
+          <li class="nav__item"><a href=" images.php" class="nav__link">Images</a></li>         
         </ul>
       </nav>
     </header>

@@ -12,6 +12,7 @@
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.65rem;
+    --fs-desc: 1.1rem;
     --fs-body: 0.6rem;
     --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
 }
@@ -74,6 +75,7 @@ h3 {
 }
 
 
+
 /* header */
 
 header {
@@ -93,13 +95,13 @@ header {
     margin: 0;
     padding-top: 0.75em;
     float: left;
-    position: relative;  
+    position: relative;
     padding-inline-start: 1vw;
 }
 
 .nav__item {
     display: inline;
-    margin:  0 0.25em;
+    margin: 0 0.25em;
 }
 
 .nav__link {
@@ -175,15 +177,16 @@ header {
     float: right;
     margin: 0.25em;
 }
-.section__data--heading{
+
+.section__data--heading {
     background-color: #327da87d;
-    font-weight: var(--fw-bold);    
+    font-weight: var(--fw-bold);
     text-transform: capitalize;
 }
 
-.section__data--row:nth-child(odd){
-    background-color: #c0c8d0;}
-
+.section__data--row:nth-child(odd) {
+    background-color: #c0c8d0;
+}
 
 @media screen and (max-width: 360px) {
     ul {
@@ -199,6 +202,7 @@ header {
 
 .section__filter {
     line-height: 1.8;
+    width: fit-content;
 }
 
 .section__fiter--submit {
@@ -224,7 +228,7 @@ div.tooltip {
     pointer-events: none;
 }
 
-.d3--graph{
+.d3--graph {
     position: relative;
 }
 
@@ -234,4 +238,42 @@ div.tooltip {
 
 .data--graph__buttons {
     margin: 0 0 1em 17%;
+}
+
+
+/* image gallery section */
+
+.section__image--gallery {
+    padding: 0;
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+
+.image__submit {
+    margin-left: 3em;
+}
+
+.image__gallery {
+    margin: 1%;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, .5);
+    float: left;
+    width: 320px;
+}
+
+.image__gallery:hover {
+    border: 1px solid #000000;
+}
+
+.image__gallery img {
+    max-width: 100%;
+    /* height: auto;    */
+    object-fit: cover;
+}
+
+.image__description {
+    padding: 0.25em 0;
+    font-size: var(--fs-desc);
+    text-align: center;
 }

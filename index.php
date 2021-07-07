@@ -1,8 +1,10 @@
 <?php
 require_once 'includes/header.php';
 ?>
-<h3>Hello</h3>
-
+<section class="Intro">
+<h3>Hi, I am
+Görkem Acar</h3>
+</section>
 <?php
 require_once 'includes/footer.php';
 ?>

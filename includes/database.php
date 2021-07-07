@@ -4,7 +4,7 @@
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "gorkem07";
-$dbName = "esp32db";
+$dbName = "iotdb";
 $port = 3307;
 
 //database connection

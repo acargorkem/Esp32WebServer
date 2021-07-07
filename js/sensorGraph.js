@@ -17,9 +17,6 @@ $(document).ready(function() {
             d.timestamp = new Date(d.timestamp);
         });
 
-        console.log(data);
-
-        // global start flag
         var graphStarted = false;
 
         // adding button
@@ -65,9 +62,16 @@ $(document).ready(function() {
             /* add x-axis */
             var xMin = d3.min(data, d => { return (d.timestamp); });
             var xMax = d3.max(data, d => { return d.timestamp; });
-            var x = d3.scaleTime()
-                .domain([d3.timeDay.offset(xMin, -1), d3.timeDay.offset(xMax, 1)])
-                .range([0, width]);
+            if (data.length < 500) {
+                var x = d3.scaleTime()
+                    .domain([d3.timeMinute.offset(xMin, -10), d3.timeMinute.offset(xMax, 10)])
+                    .range([0, width]);
+            } else {
+                var x = d3.scaleTime()
+                    .domain([d3.timeDay.offset(xMin, -1), d3.timeDay.offset(xMax, 1)])
+                    .range([0, width]);
+            }
+
 
             var xAxis = d3.axisBottom(x);
 
@@ -75,7 +79,7 @@ $(document).ready(function() {
             var yMin = d3.min(data, d => { return d[currentDataKey]; });
             var yMax = d3.max(data, d => { return d[currentDataKey]; });
             var y = d3.scaleLinear()
-                .domain([yMin / 1.01, yMax * 1.01])
+                .domain([yMin / 1.0005, yMax * 1.0005])
                 .range([height, 0]);
 
             var yAxis = d3.axisLeft(y);
@@ -116,6 +120,18 @@ $(document).ready(function() {
                 .call(brush);
 
 
+
+            // add line
+            scatter.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#03b6fc")
+                .attr("stroke-width", 1.8)
+                .attr("d", d3.line()
+                    .x(d => { return x(d.timestamp); })
+                    .y(d => { return y(d[currentDataKey]); }));
+
+
             // add circles           
             scatter.append("g")
                 .selectAll("circle")
@@ -124,14 +140,15 @@ $(document).ready(function() {
                 .append("circle")
                 .attr("cx", d => { return x(d.timestamp) })
                 .attr("cy", d => { return y(d[currentDataKey]) })
-                .attr("r", 5)
+                .attr("r", 2.2)
                 .attr("fill", "#327da8")
                 .on("mouseover", d => {
                     tooltip.transition()
                         .duration(500)
                         .style("opacity", .85)
                     console.log(tooltip)
-                    tooltip.html("<strong>" + capitalizeFirstLetter(currentDataKey) + " : " + d[currentDataKey] + units[currentDataKey] + "<br> Timestamp : " + d.timestamp.toLocaleString("en-us", dateOptions) + "</strong> ")
+                    tooltip.html("<strong>" + capitalizeFirstLetter(currentDataKey) + " : " + d[currentDataKey] + units[currentDataKey] +
+                            "<br> Timestamp : " + d.timestamp.toLocaleString("en-us", dateOptions) + "</strong> ")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 30) + "px");
                 })
@@ -152,8 +169,8 @@ $(document).ready(function() {
             svg.append("text")
                 .attr("class", "x-label")
                 // .attr("text-anchor", "end")
-                .attr("x", width +10)
-                .attr("y", height +5)
+                .attr("x", width + 10)
+                .attr("y", height + 5)
                 .text("Timestamp");
 
 
@@ -170,7 +187,7 @@ $(document).ready(function() {
                 .attr("y", -8)
                 .attr("x", 60)
                 // .attr("transform", "rotate(-90)")
-                .text(capitalizeFirstLetter(currentDataKey));
+                .text(capitalizeFirstLetter(currentDataKey) + ` [${units[currentDataKey]}]`);
 
 
             // These are needed for the brush construction to know how to scale         
@@ -205,12 +222,14 @@ $(document).ready(function() {
                 svg.select(".axis--x").transition(t).call(xAxis);
                 svg.select(".axis--y").transition(t).call(yAxis);
                 scatter.selectAll("circle").transition(t)
-                    .attr("cx", function(d) {
-                        return x(d.timestamp);
-                    })
-                    .attr("cy", function(d) {
-                        return y(d[currentDataKey]);
-                    });
+                    .attr("cx", function(d) { return x(d.timestamp); })
+                    .attr("cy", function(d) { return y(d[currentDataKey]); });
+
+                scatter
+                    .selectAll("path").transition(t)
+                    .attr("d", d3.line()
+                        .x(d => { return x(d.timestamp); })
+                        .y(d => { return y(d[currentDataKey]); }));
             }
 
         }

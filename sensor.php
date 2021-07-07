@@ -16,18 +16,18 @@ require_once 'includes/header.php';
                 <input type="checkbox" id="checkbox_temperature" name="fields[]" value="temperature" checked>
                 <label for="checkbox_temperature"> Temperature</label>
                 <input type="checkbox" id="checkbox_pressure" name="fields[]" value="pressure" checked>
-                <label for="checkbox_pressure"> Pressure</label> 
+                <label for="checkbox_pressure"> Pressure</label>
                 <input type="checkbox" id="checkbox_altitude" name="fields[]" value="altitude" checked>
-                <label for="checkbox_altitude"> Altitude</label> 
+                <label for="checkbox_altitude"> Altitude</label>
                 <input type="checkbox" id="checkbox_humidity" name="fields[]" value="humidity" checked>
                 <label for="checkbox_humidity"> Humidity</label>
             </div>
 
             <div class="section__filter section__filter--date">
-                <label for="start">From : </label>
+                <label for="from">From : </label>
                 <input class="section__filter--date" type="datetime-local" id="from" name="to_date" required>
 
-                <label for="start">To : </label>
+                <label for="to">To : </label>
                 <input class="section__filter--date" type="datetime-local" id="to" name="from_date" required>
             </div>
 
@@ -49,8 +49,8 @@ require_once 'includes/header.php';
 
         </form>
     </div>
-
 </section>
+
 <section class="section__data">
 
     <?php
@@ -98,14 +98,17 @@ require_once 'includes/header.php';
                     array_push($json_data, $json_array); //save data to array
                     echo '</tr>';
                 }
-                echo "</table>";
-                echo ('<button id="button_export" class="data__table--button" id="export">Export Data table to Excel file</button>');
-                echo ('</div>');
+    ?>
+
+                </table>
+                <button id="button_export" class="data__table--button" id="export">Export Data table to Excel file</button>
+                </div>
+    <?php
             } else {
-                echo ("No result");
+                echo ('No result');
             }
         } else {
-            echo ("Not enough parameter");
+            echo ('Not enough parameter');
         }
     }
     ?>
@@ -157,7 +160,7 @@ require_once 'includes/header.php';
     });
 </script>
 
-<script type="module" src="js/scatterPlot.js"></script>
+<script type="module" src="js/sensorGraph.js"></script>
 <?php
 require_once 'includes/footer.php';
 ?>
